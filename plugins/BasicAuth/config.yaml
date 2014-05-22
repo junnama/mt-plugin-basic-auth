@@ -1,0 +1,21 @@
+name: Basic Auth
+id:   BasicAuth
+key:  basicauth
+author_name: Junnama Noda
+author_link: 'https://www.facebook.com/junnama.noda'
+description: Basic Authentication for Admin Screen.
+version: 0.1
+config_settings:
+    EnableBasicAuth:
+        default: 1
+        updatable: 1
+callbacks:
+    init_app: BasicAuth::BasicAuth::_auth
+    init_request: BasicAuth::BasicAuth::_auth
+settings:
+    auth_username:
+    auth_password:
+system_config_template: config.tmpl
+
+# RewriteEngine on
+# RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
